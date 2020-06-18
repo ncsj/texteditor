@@ -4,7 +4,7 @@ import  java.awt.event.*;
 import  java.io.*;
 import  java.util.Properties;
 
-public class TextEditor extends Frame{
+public class TextEditor extends Frame implements Closable{
 	TextArea area = new TextArea();
 	MenuBar	mbar = new MenuBar();
 
@@ -20,10 +20,9 @@ public class TextEditor extends Frame{
 			public void windowOpened(WindowEvent e){
 				loadProps();
 			}
-			public void windowClosing(WindowEvent e){
-				close();
-			}
 		});
+
+		addWindowListener(new Closer(this));
 
 		setVisible(true);
 	}
@@ -42,7 +41,7 @@ public class TextEditor extends Frame{
 				null,								// -
 				(ActionEvent e)->{print();},		// Print
 				null,								// -
-				(ActionEvent e)->{close();}			// Exit
+				new Closer(this)					// Exit
 			};
 
 			// for(String s : items){
@@ -55,12 +54,36 @@ public class TextEditor extends Frame{
 
 			mbar.add( menu );
 		}
+		
 		{
 			Menu menu = new Menu("Edit");
 			String [] items = {"Undo","-","Cut","Copy","Paste"};
 
 			for(String s : items){
 				MenuItem item = new MenuItem( s );
+				menu.add(item);
+			}
+
+			mbar.add( menu );
+		}
+		
+		{
+			Menu menu = new Menu("Options");
+			String [] items = {"Search","Replace","-","Word List"};
+
+			ActionListener [] listeners = {
+				(ActionEvent e)->{ search(); },		// Search
+				(ActionEvent e)->{ replace(); },	// Replace
+				null,								// null
+				(ActionEvent e)->{ wordList(); }	// Word List
+			};
+
+
+			for(int i=0;i<items.length;i++){
+				MenuItem item = new MenuItem( items[i] );
+				if(listeners[i] != null){
+					item.addActionListener(listeners[i]);
+				}
 				menu.add(item);
 			}
 
@@ -239,7 +262,46 @@ public class TextEditor extends Frame{
 		}
 	}
 
-	void close(){
+	void search(){
+		new SearchDialog(this);
+	}
+
+	void replace(){
+		System.out.println("REPLACE");
+	}
+
+	void wordList(){
+		String text = area.getText();
+
+		StringChecker checker = new StringChecker( text );
+		WordCounter [] wlist = checker.listup();
+
+		StringBuilder sb = new StringBuilder();
+		int total = 0;
+		for(WordCounter wc : wlist){
+			int count = wc.count();
+
+			// System.out.printf("%s : %d\n",wc.getWord(),count);
+			String s = String.format("%s : %d\n",wc.getWord(),count);
+			sb.append( s );
+			
+			total = total + count;
+		}
+
+		String s = String.format("TOTAL : " + total);
+		sb.append( s );
+
+		String message = sb.toString();
+
+		MessageDialog dlg = new MessageDialog(this,
+								"Word List",
+								"Word List ...",
+								message,
+								MessageDialog.OK);
+	}
+
+	@Override 
+	public void close(){
 		saveProps();
 
 		setVisible(false);
