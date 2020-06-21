@@ -1,6 +1,13 @@
 import  java.util.ArrayList;
 import  java.util.Collections;
 
+/**
+  文字列をチェックし、その中に登場する単語をリスト化する。
+  リスト化される単語は、登場回数とともに、WordCounterの
+  オブジェクトとして表現される。
+
+  なお、日本語には対応していない。
+**/
 class StringChecker{
 	String target = null;
 	ArrayList <WordCounter> wlist = new ArrayList <WordCounter> ();
@@ -9,6 +16,11 @@ class StringChecker{
 		this.target = filter(target);
 	}
 
+	/**
+	  改行やタブ、句読点（ピリオドやカンマ）、空白は、
+	  単語を数える上で不要なので、あらかじめ消しておく。
+	  単語を区切るための空白のみ、残しておく。
+	**/
 	String filter(String text){
 		StringBuilder sb = new StringBuilder();
 
@@ -20,7 +32,8 @@ class StringChecker{
 				case 0x000a:	//  LF
 				case 0x0009:	//  TAB
 				case '.':
-					c = ' ';
+				case ',':
+					c = ' ';	// とりあえず空白（スペース）へ置き換える
 					break;
 				default:
 					break;

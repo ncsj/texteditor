@@ -1,9 +1,16 @@
 import  java.io.*;
 
 /*
-   ファイルの入出力を行うオブジェクトを定義しているクラス。
+   テキストファイルの入出力を行うオブジェクトを定義しているクラス。
    このクラスのインスタンスを得るには、スタティック・メソッドgetManager()を
    使用する必要がある。
+
+   インスタンスの取得		: static FileManager getManager(String fname);
+								String fname --- 入出力の対象となるファイル
+   ファイルの出力（保存）	: void save(String text);
+								引数でしていされる文字列をファイルへ出力する。
+   ファイルの入力（読込）	: String load(); 
+								ファイルから読み込んだテキストを返す。
 */
 public class FileManager{
 	static FileManager manager = null;
@@ -23,6 +30,10 @@ public class FileManager{
 		if(manager == null){
 			manager = new FileManager(fname);
 		}
+		else{
+			manager.fname = fname;
+		}
+
 		return manager;
 	}
 

@@ -4,12 +4,59 @@ import  java.awt.event.*;
 import  java.io.*;
 import  java.util.Properties;
 
+/**
+ TextEditor : テキストエディター
+ 製作期間 : 2020.6.15-19（５日間）
+
+ テキストエディターの作成過程を通じて、Javaプログラミングの
+ 様々な知識を学んでいきます。
+
+ ここで学ぶ主な内容は以下の通りです。
+
+ １.GUI関連
+   ウインドウ（Frame/Dialog/FileDialog）の操作
+   イベントの処理
+     インターフェースとラムダ式
+	 アダプターと匿名クラス
+   GUIコンポーネントの活用
+     Label
+	 Button
+	 TextField
+	 TextArea
+	 List
+	 Menu（Menu,MenuBar,MenuItem）
+ ２.印刷
+   プリントジョブ（PrintJob）とグラフィクス(Graphics)の操作
+     ToolkitとPrintJob
+	 Graphicsの操作
+	 ページ属性（PageAttributes）の設定
+ ３.文字列の操作
+   Stringクラスを用いた文字列の操作
+	 length()メソッド	: 文字列の長さ
+     split()メソッド	: 文字列の分割
+	 charAt()メソッド	: 文字列から１文字を取り出す
+	 format()メソッド	: 書式設定を利用した文字列の生成
+ ４.ファイル入出力
+   テキストファイルの入力（読み込み）
+     java.io.FileInputStream
+	 java.io.InputStreamReader
+	 java.io.BufferedReader
+	 java.lang.StringBuilder
+   テキストファイルの出力（書き出し）
+     java.io.FileOutputStream
+	 java.io.PrintStream
+   プロパティ（java.util.Properties）を利用したファイル入出力
+     java.util.Properties
+**/
 public class TextEditor extends Frame implements Closable{
 	TextArea area = new TextArea();
 	MenuBar	mbar = new MenuBar();
 
 	FileManager fileManager = null;
 
+	/**
+	  デフォルトコンストラクター
+	**/
 	public TextEditor(){
 		// setBounds(1600,0,800,600);
 		add("Center",area);
@@ -27,6 +74,9 @@ public class TextEditor extends Frame implements Closable{
 		setVisible(true);
 	}
 
+	/**
+	  メニューの設定
+	**/
 	void initMenu(){
 		{
 			Menu menu = new Menu("File");
@@ -93,6 +143,10 @@ public class TextEditor extends Frame implements Closable{
 		setMenuBar(mbar);
 	}
 
+	/**
+	  新規のコンテンツを作成するために、
+	  テキストエリア（TextArea）とファイルマネージャを初期化している。
+	**/
 	void newContents(){
 		MessageDialog dlg = new MessageDialog(this
 											,"ALART"
@@ -106,6 +160,11 @@ public class TextEditor extends Frame implements Closable{
 		}
 	}
 
+	/**
+	  ファイルをオープンする。
+	  ファイルの指定には、FileDialogを利用する。
+	  ファイルのロードには、loadFile()を利用する。
+	**/
 	void openFile(){
 		FileDialog dlg = new FileDialog(this,"File Open ...",FileDialog.LOAD);
 		dlg.setVisible(true);
@@ -129,6 +188,11 @@ public class TextEditor extends Frame implements Closable{
 		}
 	}
 
+	/**
+	  ファイルをロードする。
+	  ファイルのロードには、FileManagerを利用している。
+	  詳細は、FileManager.javaを参照のこと。
+	**/
 	void loadFile(){
 		if(this.fileManager != null){
 			try{
@@ -144,6 +208,12 @@ public class TextEditor extends Frame implements Closable{
 		}
 	}
 
+	/**
+	  保持しているテキストを、ファイルへ保存する。
+	  ファイル名が未定の場合は、saveAsFile()へ移行する。
+	  実際にファイルを保存しているのは、FileManagerである。
+	  詳細は、FileManager.javaを参照のこと。
+	**/
 	void saveFile(){
 		if(this.fileManager != null){
 			String text = area.getText();
@@ -162,13 +232,17 @@ public class TextEditor extends Frame implements Closable{
 		}
 	}
 
+	/**
+	  ファイル名を指定して、ファイルへ保存する。
+	  ファイル名の指定には、FileDialogを利用する。
+	**/
 	void saveAsFile(){
 		FileDialog dlg = new FileDialog(this,"Save As ...",FileDialog.SAVE);
 		dlg.setVisible(true);
 
 		String dir		= dlg.getDirectory();
 		String fname	= dlg.getFile();
-		
+
 		if(dir != null && fname != null){
 			try{
 				this.fileManager = FileManager.getManager(dir+fname);
@@ -183,18 +257,32 @@ public class TextEditor extends Frame implements Closable{
 		}
 	}
 
+	/*
+	   テキストの印刷
+	*/
 	void print(){
-		String s = "Print!";
-		String msg = "Print is Selected.";
-		String detail = "The Function To Print is not Supported.";
-		new MessageDialog(this,s,msg,detail,MessageDialog.OK);
+		String text = area.getText();
+		String [] lines = text.split("\n");
+
+		String title = "TextEditor v1.0";
+		if(this.fileManager != null){
+			title = "TextEditor - " + this.fileManager.fname;
+		}
+
+		// PrintManagerを利用して印刷を行う。
+		// 詳細は、PrintManager.javaを参照のこと。
+		PrintManager manager = PrintManager.getInstance(this,title);
+		manager.print(lines);
 	}
 
 	/*
 	   プロパティの保存
+	   ウインドウ(Frame)の表示位置情報をProperiesの機能を利用して保存する。
+	   ここでは、XML形式で保存する機能（storeToXML()）を利用している。
 	*/
 	void saveProps(){
 		// Rectangle = 矩形
+		// 現在の表示位置をRectangleのインスタンスとして取得する。
 		Rectangle rect = getBounds();
 
 		Properties props = new Properties();
@@ -209,6 +297,7 @@ public class TextEditor extends Frame implements Closable{
 		props.put("h",sh);
 
 		try{
+			// 保存するファイル（bounds.xml）の指定
 			FileOutputStream fout = new FileOutputStream("bounds.xml");
 			props.storeToXML(fout,"BOUNDS OF TEXTEDITOR");
 			fout.close();
@@ -230,6 +319,11 @@ public class TextEditor extends Frame implements Closable{
 
 	/*
 	   プロパティの読み込み
+	   テキストエディタ起動時の表示位置を読み込む。
+	   saveProps()にて保管された表示位置情報を読み込み、
+	   前回終了時に表示されていた位置に表示するために利用する。
+	   初回起動時など、設定ファイル（bounds.xml）が存在しない
+	   場合は、初期設定（0,0,800,600）を適用する。
 	*/
 	void loadProps(){
 		try{
@@ -249,9 +343,11 @@ public class TextEditor extends Frame implements Closable{
 			int w = Integer.valueOf(sw).intValue();
 			int h = Integer.valueOf(sh).intValue();
 
+			// 読み込んだ値を適用する。
 			setBounds(x,y,w,h);
 		}
 		catch(FileNotFoundException e){
+			// ファイルが存在しない場合には、初期設定を用いる。
 			setBounds(0,0,800,600);
 		}
 		catch(IOException e){
@@ -262,14 +358,36 @@ public class TextEditor extends Frame implements Closable{
 		}
 	}
 
+	/**
+	  文字列検索機能
+	  ほとんどの機能は、SearchDialogおよびSearchDialogにて
+	  利用されている以下のクラスにより実現されている。
+
+		SearchDialog	: 文字列検索のタスクを行うためのダイアログボックス
+		WordRetriever	: 文字列検索を行うクラス
+		WordRange		: 検索した文字列の位置を表すクラス
+		StringChecker	: 文字列中に存在する単語の一覧を取得するために利用
+						  特定の単語がいくつ存在するのかは、WordCounterの
+						  インスタンスとして表現している。
+		WordCounter		: 特定の文字列が文字列中に存在している数を表す。
+						  検索候補の一覧のために利用している。
+	**/
 	void search(){
 		new SearchDialog(this);
 	}
 
+	/*
+	   文字列の置換
+	   未実装
+	*/
 	void replace(){
 		System.out.println("REPLACE");
 	}
 
+	/*
+	   現在area(TextArea)にて保持している文字列の中に存在する
+	   単語の一覧を取得し、ダイアログ(MessageDialog)にて表示する。
+	*/
 	void wordList(){
 		String text = area.getText();
 
@@ -300,6 +418,11 @@ public class TextEditor extends Frame implements Closable{
 								MessageDialog.OK);
 	}
 
+	/**
+	  ウインドウを閉じるときに起動するメソッド。
+	  Closableインターフェースのclose()メソッドを
+	  オーバーライドしている。
+	**/
 	@Override 
 	public void close(){
 		saveProps();
@@ -308,6 +431,10 @@ public class TextEditor extends Frame implements Closable{
 		dispose();
 	}
 
+	/**
+	  メインメソッド
+	  テキストエディタを起動する。
+	**/
 	public static void main(String args[]){
 		new TextEditor();
 	}

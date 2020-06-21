@@ -1,3 +1,9 @@
+/**
+  文字列の位置を特定する。
+  インスタンス生成時に設定したテキスト(Strint text)中に、
+  retrieve(String word)メソッドにて指定する文字列（word）が
+  出現する位置を、WordRangeとして返す。
+**/
 class WordRetriever{
 	String text;
 	int  index = 0;
