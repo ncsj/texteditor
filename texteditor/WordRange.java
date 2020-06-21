@@ -1,5 +1,5 @@
 /**
-  �P�ꂪ�����񒆂ŏo������ꏊ��\���I�u�W�F�N�g���`�B
+  単語が文字列中で出現する場所を表すオブジェクトを定義。
 **/
 class WordRange{
 	String	word;

@@ -30,7 +30,7 @@ public class MessageDialog extends Dialog{
 
 		area.setText(detail);
 
-		// Šm”F—pƒ{ƒ^ƒ“‚Ìİ’è
+		// ç¢ºèªç”¨ãƒœã‚¿ãƒ³ã®è¨­å®š
 		String [] titles = null;
 		String [] titles1 = {"OK"};
 		String [] titles2 = {"OK","CANCEL"};
@@ -65,7 +65,7 @@ public class MessageDialog extends Dialog{
 			}
 		}
 
-		Rectangle rect = frame.getBounds();		// Šî€‚Æ‚È‚éƒI[ƒi[ƒEƒCƒ“ƒhƒE‚Ì•\¦ˆÊ’u‚ğæ“¾
+		Rectangle rect = frame.getBounds();		// åŸºæº–ã¨ãªã‚‹ã‚ªãƒ¼ãƒŠãƒ¼ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®è¡¨ç¤ºä½ç½®ã‚’å–å¾—
 		int x = rect.x + 200;
 		int y = rect.y + 100;
 		int w = 400;

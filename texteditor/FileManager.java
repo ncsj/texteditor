@@ -1,24 +1,24 @@
 import  java.io.*;
 
 /*
-   ƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚Ì“üo—Í‚ğs‚¤ƒIƒuƒWƒFƒNƒg‚ğ’è‹`‚µ‚Ä‚¢‚éƒNƒ‰ƒXB
-   ‚±‚ÌƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğ“¾‚é‚É‚ÍAƒXƒ^ƒeƒBƒbƒNEƒƒ\ƒbƒhgetManager()‚ğ
-   g—p‚·‚é•K—v‚ª‚ ‚éB
+   ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã®å…¥å‡ºåŠ›ã‚’è¡Œã†ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å®šç¾©ã—ã¦ã„ã‚‹ã‚¯ãƒ©ã‚¹ã€‚
+   ã“ã®ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’å¾—ã‚‹ã«ã¯ã€ã‚¹ã‚¿ãƒ†ã‚£ãƒƒã‚¯ãƒ»ãƒ¡ã‚½ãƒƒãƒ‰getManager()ã‚’
+   ä½¿ç”¨ã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚
 
-   ƒCƒ“ƒXƒ^ƒ“ƒX‚Ìæ“¾		: static FileManager getManager(String fname);
-								String fname --- “üo—Í‚Ì‘ÎÛ‚Æ‚È‚éƒtƒ@ƒCƒ‹
-   ƒtƒ@ƒCƒ‹‚Ìo—Íi•Û‘¶j	: void save(String text);
-								ˆø”‚Å‚µ‚Ä‚¢‚³‚ê‚é•¶š—ñ‚ğƒtƒ@ƒCƒ‹‚Öo—Í‚·‚éB
-   ƒtƒ@ƒCƒ‹‚Ì“ü—Íi“Çj	: String load(); 
-								ƒtƒ@ƒCƒ‹‚©‚ç“Ç‚İ‚ñ‚¾ƒeƒLƒXƒg‚ğ•Ô‚·B
+   ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®å–å¾—		: static FileManager getManager(String fname);
+								String fname --- å…¥å‡ºåŠ›ã®å¯¾è±¡ã¨ãªã‚‹ãƒ•ã‚¡ã‚¤ãƒ«
+   ãƒ•ã‚¡ã‚¤ãƒ«ã®å‡ºåŠ›ï¼ˆä¿å­˜ï¼‰	: void save(String text);
+								å¼•æ•°ã§ã—ã¦ã„ã•ã‚Œã‚‹æ–‡å­—åˆ—ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã¸å‡ºåŠ›ã™ã‚‹ã€‚
+   ãƒ•ã‚¡ã‚¤ãƒ«ã®å…¥åŠ›ï¼ˆèª­è¾¼ï¼‰	: String load(); 
+								ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰èª­ã¿è¾¼ã‚“ã ãƒ†ã‚­ã‚¹ãƒˆã‚’è¿”ã™ã€‚
 */
 public class FileManager{
 	static FileManager manager = null;
 
 	public static FileManager getManager(String fname) throws FileManagerException{
 		File file = new File(fname);
-		if(file.exists()){				// ƒtƒ@ƒCƒ‹‚Ì‘¶İ‚ğƒ`ƒFƒbƒN‚·‚éB
-			if(file.isDirectory()){		// ƒfƒBƒŒƒNƒgƒŠ‚©‚Ç‚¤‚©‚ğŠm”F‚·‚éB
+		if(file.exists()){				// ãƒ•ã‚¡ã‚¤ãƒ«ã®å­˜åœ¨ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
+			if(file.isDirectory()){		// ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‹ã©ã†ã‹ã‚’ç¢ºèªã™ã‚‹ã€‚
 				String err = "THE FILE IS DIRECTORY : " + fname;
 				throw new FileManagerException(err);
 			}

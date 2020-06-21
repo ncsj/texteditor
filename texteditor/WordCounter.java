@@ -1,6 +1,6 @@
 /**
-  �ێ����镶���񂪁A����̕����񒆂ɉ���o�ꂷ��̂���\�����߂̃I�u�W�F�N�g
-  StringChecker�ɂĒP��̈ꗗ���쐬����Ƃ��Ɏg�p����B
+  保持する文字列が、特定の文字列中に何回登場するのかを表すためのオブジェクト
+  StringCheckerにて単語の一覧を作成するときに使用する。
 **/
 class WordCounter implements Comparable<WordCounter>{
 	String	word = null;

@@ -1,6 +1,6 @@
 /*
-   FileManagerƒNƒ‰ƒX‚ğ—˜—p‚·‚é‚Æ‚«‚É”­¶‚·‚é‰Â”\«‚Ì‚ ‚éƒGƒ‰[‚ğ
-   ’Ê’m‚·‚é‚½‚ß‚É—˜—p‚·‚é—áŠOƒNƒ‰ƒX
+   FileManagerã‚¯ãƒ©ã‚¹ã‚’åˆ©ç”¨ã™ã‚‹ã¨ãã«ç™ºç”Ÿã™ã‚‹å¯èƒ½æ€§ã®ã‚ã‚‹ã‚¨ãƒ©ãƒ¼ã‚’
+   é€šçŸ¥ã™ã‚‹ãŸã‚ã«åˆ©ç”¨ã™ã‚‹ä¾‹å¤–ã‚¯ãƒ©ã‚¹
 */
 public class FileManagerException extends Exception{
 	String err = null;

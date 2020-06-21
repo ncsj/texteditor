@@ -5,47 +5,47 @@ import  java.io.*;
 import  java.util.Properties;
 
 /**
- TextEditor : ƒeƒLƒXƒgƒGƒfƒBƒ^[
- »ìŠúŠÔ : 2020.6.15-19i‚T“úŠÔj
+ TextEditor : ãƒ†ã‚­ã‚¹ãƒˆã‚¨ãƒ‡ã‚£ã‚¿ãƒ¼
+ è£½ä½œæœŸé–“ : 2020.6.15-19ï¼ˆï¼•æ—¥é–“ï¼‰
 
- ƒeƒLƒXƒgƒGƒfƒBƒ^[‚Ìì¬‰ß’ö‚ğ’Ê‚¶‚ÄAJavaƒvƒƒOƒ‰ƒ~ƒ“ƒO‚Ì
- —lX‚È’m¯‚ğŠw‚ñ‚Å‚¢‚«‚Ü‚·B
+ ãƒ†ã‚­ã‚¹ãƒˆã‚¨ãƒ‡ã‚£ã‚¿ãƒ¼ã®ä½œæˆéç¨‹ã‚’é€šã˜ã¦ã€Javaãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°ã®
+ æ§˜ã€…ãªçŸ¥è­˜ã‚’å­¦ã‚“ã§ã„ãã¾ã™ã€‚
 
- ‚±‚±‚ÅŠw‚Ôå‚È“à—e‚ÍˆÈ‰º‚Ì’Ê‚è‚Å‚·B
+ ã“ã“ã§å­¦ã¶ä¸»ãªå†…å®¹ã¯ä»¥ä¸‹ã®é€šã‚Šã§ã™ã€‚
 
- ‚P.GUIŠÖ˜A
-   ƒEƒCƒ“ƒhƒEiFrame/Dialog/FileDialogj‚Ì‘€ì
-   ƒCƒxƒ“ƒg‚Ìˆ—
-     ƒCƒ“ƒ^[ƒtƒF[ƒX‚Æƒ‰ƒ€ƒ_®
-	 ƒAƒ_ƒvƒ^[‚Æ“½–¼ƒNƒ‰ƒX
-   GUIƒRƒ“ƒ|[ƒlƒ“ƒg‚ÌŠˆ—p
+ ï¼‘.GUIé–¢é€£
+   ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ï¼ˆFrame/Dialog/FileDialogï¼‰ã®æ“ä½œ
+   ã‚¤ãƒ™ãƒ³ãƒˆã®å‡¦ç†
+     ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã¨ãƒ©ãƒ ãƒ€å¼
+	 ã‚¢ãƒ€ãƒ—ã‚¿ãƒ¼ã¨åŒ¿åã‚¯ãƒ©ã‚¹
+   GUIã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®æ´»ç”¨
      Label
 	 Button
 	 TextField
 	 TextArea
 	 List
-	 MenuiMenu,MenuBar,MenuItemj
- ‚Q.ˆóü
-   ƒvƒŠƒ“ƒgƒWƒ‡ƒuiPrintJobj‚ÆƒOƒ‰ƒtƒBƒNƒX(Graphics)‚Ì‘€ì
-     Toolkit‚ÆPrintJob
-	 Graphics‚Ì‘€ì
-	 ƒy[ƒW‘®«iPageAttributesj‚Ìİ’è
- ‚R.•¶š—ñ‚Ì‘€ì
-   StringƒNƒ‰ƒX‚ğ—p‚¢‚½•¶š—ñ‚Ì‘€ì
-	 length()ƒƒ\ƒbƒh	: •¶š—ñ‚Ì’·‚³
-     split()ƒƒ\ƒbƒh	: •¶š—ñ‚Ì•ªŠ„
-	 charAt()ƒƒ\ƒbƒh	: •¶š—ñ‚©‚ç‚P•¶š‚ğæ‚èo‚·
-	 format()ƒƒ\ƒbƒh	: ‘®İ’è‚ğ—˜—p‚µ‚½•¶š—ñ‚Ì¶¬
- ‚S.ƒtƒ@ƒCƒ‹“üo—Í
-   ƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚Ì“ü—Íi“Ç‚İ‚İj
+	 Menuï¼ˆMenu,MenuBar,MenuItemï¼‰
+ ï¼’.å°åˆ·
+   ãƒ—ãƒªãƒ³ãƒˆã‚¸ãƒ§ãƒ–ï¼ˆPrintJobï¼‰ã¨ã‚°ãƒ©ãƒ•ã‚£ã‚¯ã‚¹(Graphics)ã®æ“ä½œ
+     Toolkitã¨PrintJob
+	 Graphicsã®æ“ä½œ
+	 ãƒšãƒ¼ã‚¸å±æ€§ï¼ˆPageAttributesï¼‰ã®è¨­å®š
+ ï¼“.æ–‡å­—åˆ—ã®æ“ä½œ
+   Stringã‚¯ãƒ©ã‚¹ã‚’ç”¨ã„ãŸæ–‡å­—åˆ—ã®æ“ä½œ
+	 length()ãƒ¡ã‚½ãƒƒãƒ‰	: æ–‡å­—åˆ—ã®é•·ã•
+     split()ãƒ¡ã‚½ãƒƒãƒ‰	: æ–‡å­—åˆ—ã®åˆ†å‰²
+	 charAt()ãƒ¡ã‚½ãƒƒãƒ‰	: æ–‡å­—åˆ—ã‹ã‚‰ï¼‘æ–‡å­—ã‚’å–ã‚Šå‡ºã™
+	 format()ãƒ¡ã‚½ãƒƒãƒ‰	: æ›¸å¼è¨­å®šã‚’åˆ©ç”¨ã—ãŸæ–‡å­—åˆ—ã®ç”Ÿæˆ
+ ï¼”.ãƒ•ã‚¡ã‚¤ãƒ«å…¥å‡ºåŠ›
+   ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã®å…¥åŠ›ï¼ˆèª­ã¿è¾¼ã¿ï¼‰
      java.io.FileInputStream
 	 java.io.InputStreamReader
 	 java.io.BufferedReader
 	 java.lang.StringBuilder
-   ƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚Ìo—Íi‘‚«o‚µj
+   ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã®å‡ºåŠ›ï¼ˆæ›¸ãå‡ºã—ï¼‰
      java.io.FileOutputStream
 	 java.io.PrintStream
-   ƒvƒƒpƒeƒBijava.util.Propertiesj‚ğ—˜—p‚µ‚½ƒtƒ@ƒCƒ‹“üo—Í
+   ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ï¼ˆjava.util.Propertiesï¼‰ã‚’åˆ©ç”¨ã—ãŸãƒ•ã‚¡ã‚¤ãƒ«å…¥å‡ºåŠ›
      java.util.Properties
 **/
 public class TextEditor extends Frame implements Closable{
@@ -55,7 +55,7 @@ public class TextEditor extends Frame implements Closable{
 	FileManager fileManager = null;
 
 	/**
-	  ƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^[
+	  ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ¼
 	**/
 	public TextEditor(){
 		// setBounds(1600,0,800,600);
@@ -75,7 +75,7 @@ public class TextEditor extends Frame implements Closable{
 	}
 
 	/**
-	  ƒƒjƒ…[‚Ìİ’è
+	  ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®è¨­å®š
 	**/
 	void initMenu(){
 		{
@@ -144,8 +144,8 @@ public class TextEditor extends Frame implements Closable{
 	}
 
 	/**
-	  V‹K‚ÌƒRƒ“ƒeƒ“ƒc‚ğì¬‚·‚é‚½‚ß‚ÉA
-	  ƒeƒLƒXƒgƒGƒŠƒAiTextAreaj‚Æƒtƒ@ƒCƒ‹ƒ}ƒl[ƒWƒƒ‚ğ‰Šú‰»‚µ‚Ä‚¢‚éB
+	  æ–°è¦ã®ã‚³ãƒ³ãƒ†ãƒ³ãƒ„ã‚’ä½œæˆã™ã‚‹ãŸã‚ã«ã€
+	  ãƒ†ã‚­ã‚¹ãƒˆã‚¨ãƒªã‚¢ï¼ˆTextAreaï¼‰ã¨ãƒ•ã‚¡ã‚¤ãƒ«ãƒãƒãƒ¼ã‚¸ãƒ£ã‚’åˆæœŸåŒ–ã—ã¦ã„ã‚‹ã€‚
 	**/
 	void newContents(){
 		MessageDialog dlg = new MessageDialog(this
@@ -161,9 +161,9 @@ public class TextEditor extends Frame implements Closable{
 	}
 
 	/**
-	  ƒtƒ@ƒCƒ‹‚ğƒI[ƒvƒ“‚·‚éB
-	  ƒtƒ@ƒCƒ‹‚Ìw’è‚É‚ÍAFileDialog‚ğ—˜—p‚·‚éB
-	  ƒtƒ@ƒCƒ‹‚Ìƒ[ƒh‚É‚ÍAloadFile()‚ğ—˜—p‚·‚éB
+	  ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã‚ªãƒ¼ãƒ—ãƒ³ã™ã‚‹ã€‚
+	  ãƒ•ã‚¡ã‚¤ãƒ«ã®æŒ‡å®šã«ã¯ã€FileDialogã‚’åˆ©ç”¨ã™ã‚‹ã€‚
+	  ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ­ãƒ¼ãƒ‰ã«ã¯ã€loadFile()ã‚’åˆ©ç”¨ã™ã‚‹ã€‚
 	**/
 	void openFile(){
 		FileDialog dlg = new FileDialog(this,"File Open ...",FileDialog.LOAD);
@@ -189,9 +189,9 @@ public class TextEditor extends Frame implements Closable{
 	}
 
 	/**
-	  ƒtƒ@ƒCƒ‹‚ğƒ[ƒh‚·‚éB
-	  ƒtƒ@ƒCƒ‹‚Ìƒ[ƒh‚É‚ÍAFileManager‚ğ—˜—p‚µ‚Ä‚¢‚éB
-	  Ú×‚ÍAFileManager.java‚ğQÆ‚Ì‚±‚ÆB
+	  ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒ­ãƒ¼ãƒ‰ã™ã‚‹ã€‚
+	  ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ­ãƒ¼ãƒ‰ã«ã¯ã€FileManagerã‚’åˆ©ç”¨ã—ã¦ã„ã‚‹ã€‚
+	  è©³ç´°ã¯ã€FileManager.javaã‚’å‚ç…§ã®ã“ã¨ã€‚
 	**/
 	void loadFile(){
 		if(this.fileManager != null){
@@ -209,10 +209,10 @@ public class TextEditor extends Frame implements Closable{
 	}
 
 	/**
-	  •Û‚µ‚Ä‚¢‚éƒeƒLƒXƒg‚ğAƒtƒ@ƒCƒ‹‚Ö•Û‘¶‚·‚éB
-	  ƒtƒ@ƒCƒ‹–¼‚ª–¢’è‚Ìê‡‚ÍAsaveAsFile()‚ÖˆÚs‚·‚éB
-	  ÀÛ‚Éƒtƒ@ƒCƒ‹‚ğ•Û‘¶‚µ‚Ä‚¢‚é‚Ì‚ÍAFileManager‚Å‚ ‚éB
-	  Ú×‚ÍAFileManager.java‚ğQÆ‚Ì‚±‚ÆB
+	  ä¿æŒã—ã¦ã„ã‚‹ãƒ†ã‚­ã‚¹ãƒˆã‚’ã€ãƒ•ã‚¡ã‚¤ãƒ«ã¸ä¿å­˜ã™ã‚‹ã€‚
+	  ãƒ•ã‚¡ã‚¤ãƒ«åãŒæœªå®šã®å ´åˆã¯ã€saveAsFile()ã¸ç§»è¡Œã™ã‚‹ã€‚
+	  å®Ÿéš›ã«ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä¿å­˜ã—ã¦ã„ã‚‹ã®ã¯ã€FileManagerã§ã‚ã‚‹ã€‚
+	  è©³ç´°ã¯ã€FileManager.javaã‚’å‚ç…§ã®ã“ã¨ã€‚
 	**/
 	void saveFile(){
 		if(this.fileManager != null){
@@ -233,8 +233,8 @@ public class TextEditor extends Frame implements Closable{
 	}
 
 	/**
-	  ƒtƒ@ƒCƒ‹–¼‚ğw’è‚µ‚ÄAƒtƒ@ƒCƒ‹‚Ö•Û‘¶‚·‚éB
-	  ƒtƒ@ƒCƒ‹–¼‚Ìw’è‚É‚ÍAFileDialog‚ğ—˜—p‚·‚éB
+	  ãƒ•ã‚¡ã‚¤ãƒ«åã‚’æŒ‡å®šã—ã¦ã€ãƒ•ã‚¡ã‚¤ãƒ«ã¸ä¿å­˜ã™ã‚‹ã€‚
+	  ãƒ•ã‚¡ã‚¤ãƒ«åã®æŒ‡å®šã«ã¯ã€FileDialogã‚’åˆ©ç”¨ã™ã‚‹ã€‚
 	**/
 	void saveAsFile(){
 		FileDialog dlg = new FileDialog(this,"Save As ...",FileDialog.SAVE);
@@ -258,7 +258,7 @@ public class TextEditor extends Frame implements Closable{
 	}
 
 	/*
-	   ƒeƒLƒXƒg‚Ìˆóü
+	   ãƒ†ã‚­ã‚¹ãƒˆã®å°åˆ·
 	*/
 	void print(){
 		String text = area.getText();
@@ -269,20 +269,20 @@ public class TextEditor extends Frame implements Closable{
 			title = "TextEditor - " + this.fileManager.fname;
 		}
 
-		// PrintManager‚ğ—˜—p‚µ‚Äˆóü‚ğs‚¤B
-		// Ú×‚ÍAPrintManager.java‚ğQÆ‚Ì‚±‚ÆB
+		// PrintManagerã‚’åˆ©ç”¨ã—ã¦å°åˆ·ã‚’è¡Œã†ã€‚
+		// è©³ç´°ã¯ã€PrintManager.javaã‚’å‚ç…§ã®ã“ã¨ã€‚
 		PrintManager manager = PrintManager.getInstance(this,title);
 		manager.print(lines);
 	}
 
 	/*
-	   ƒvƒƒpƒeƒB‚Ì•Û‘¶
-	   ƒEƒCƒ“ƒhƒE(Frame)‚Ì•\¦ˆÊ’uî•ñ‚ğProperies‚Ì‹@”\‚ğ—˜—p‚µ‚Ä•Û‘¶‚·‚éB
-	   ‚±‚±‚Å‚ÍAXMLŒ`®‚Å•Û‘¶‚·‚é‹@”\istoreToXML()j‚ğ—˜—p‚µ‚Ä‚¢‚éB
+	   ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®ä¿å­˜
+	   ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦(Frame)ã®è¡¨ç¤ºä½ç½®æƒ…å ±ã‚’Properiesã®æ©Ÿèƒ½ã‚’åˆ©ç”¨ã—ã¦ä¿å­˜ã™ã‚‹ã€‚
+	   ã“ã“ã§ã¯ã€XMLå½¢å¼ã§ä¿å­˜ã™ã‚‹æ©Ÿèƒ½ï¼ˆstoreToXML()ï¼‰ã‚’åˆ©ç”¨ã—ã¦ã„ã‚‹ã€‚
 	*/
 	void saveProps(){
-		// Rectangle = ‹éŒ`
-		// Œ»İ‚Ì•\¦ˆÊ’u‚ğRectangle‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚Æ‚µ‚Äæ“¾‚·‚éB
+		// Rectangle = çŸ©å½¢
+		// ç¾åœ¨ã®è¡¨ç¤ºä½ç½®ã‚’Rectangleã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã¨ã—ã¦å–å¾—ã™ã‚‹ã€‚
 		Rectangle rect = getBounds();
 
 		Properties props = new Properties();
@@ -297,7 +297,7 @@ public class TextEditor extends Frame implements Closable{
 		props.put("h",sh);
 
 		try{
-			// •Û‘¶‚·‚éƒtƒ@ƒCƒ‹ibounds.xmlj‚Ìw’è
+			// ä¿å­˜ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ï¼ˆbounds.xmlï¼‰ã®æŒ‡å®š
 			FileOutputStream fout = new FileOutputStream("bounds.xml");
 			props.storeToXML(fout,"BOUNDS OF TEXTEDITOR");
 			fout.close();
@@ -318,12 +318,12 @@ public class TextEditor extends Frame implements Closable{
 	}
 
 	/*
-	   ƒvƒƒpƒeƒB‚Ì“Ç‚İ‚İ
-	   ƒeƒLƒXƒgƒGƒfƒBƒ^‹N“®‚Ì•\¦ˆÊ’u‚ğ“Ç‚İ‚ŞB
-	   saveProps()‚É‚Ä•ÛŠÇ‚³‚ê‚½•\¦ˆÊ’uî•ñ‚ğ“Ç‚İ‚İA
-	   ‘O‰ñI—¹‚É•\¦‚³‚ê‚Ä‚¢‚½ˆÊ’u‚É•\¦‚·‚é‚½‚ß‚É—˜—p‚·‚éB
-	   ‰‰ñ‹N“®‚È‚ÇAİ’èƒtƒ@ƒCƒ‹ibounds.xmlj‚ª‘¶İ‚µ‚È‚¢
-	   ê‡‚ÍA‰Šúİ’èi0,0,800,600j‚ğ“K—p‚·‚éB
+	   ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®èª­ã¿è¾¼ã¿
+	   ãƒ†ã‚­ã‚¹ãƒˆã‚¨ãƒ‡ã‚£ã‚¿èµ·å‹•æ™‚ã®è¡¨ç¤ºä½ç½®ã‚’èª­ã¿è¾¼ã‚€ã€‚
+	   saveProps()ã«ã¦ä¿ç®¡ã•ã‚ŒãŸè¡¨ç¤ºä½ç½®æƒ…å ±ã‚’èª­ã¿è¾¼ã¿ã€
+	   å‰å›çµ‚äº†æ™‚ã«è¡¨ç¤ºã•ã‚Œã¦ã„ãŸä½ç½®ã«è¡¨ç¤ºã™ã‚‹ãŸã‚ã«åˆ©ç”¨ã™ã‚‹ã€‚
+	   åˆå›èµ·å‹•æ™‚ãªã©ã€è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ï¼ˆbounds.xmlï¼‰ãŒå­˜åœ¨ã—ãªã„
+	   å ´åˆã¯ã€åˆæœŸè¨­å®šï¼ˆ0,0,800,600ï¼‰ã‚’é©ç”¨ã™ã‚‹ã€‚
 	*/
 	void loadProps(){
 		try{
@@ -343,11 +343,11 @@ public class TextEditor extends Frame implements Closable{
 			int w = Integer.valueOf(sw).intValue();
 			int h = Integer.valueOf(sh).intValue();
 
-			// “Ç‚İ‚ñ‚¾’l‚ğ“K—p‚·‚éB
+			// èª­ã¿è¾¼ã‚“ã å€¤ã‚’é©ç”¨ã™ã‚‹ã€‚
 			setBounds(x,y,w,h);
 		}
 		catch(FileNotFoundException e){
-			// ƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚¢ê‡‚É‚ÍA‰Šúİ’è‚ğ—p‚¢‚éB
+			// ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã„å ´åˆã«ã¯ã€åˆæœŸè¨­å®šã‚’ç”¨ã„ã‚‹ã€‚
 			setBounds(0,0,800,600);
 		}
 		catch(IOException e){
@@ -359,34 +359,34 @@ public class TextEditor extends Frame implements Closable{
 	}
 
 	/**
-	  •¶š—ñŒŸõ‹@”\
-	  ‚Ù‚Æ‚ñ‚Ç‚Ì‹@”\‚ÍASearchDialog‚¨‚æ‚ÑSearchDialog‚É‚Ä
-	  —˜—p‚³‚ê‚Ä‚¢‚éˆÈ‰º‚ÌƒNƒ‰ƒX‚É‚æ‚èÀŒ»‚³‚ê‚Ä‚¢‚éB
+	  æ–‡å­—åˆ—æ¤œç´¢æ©Ÿèƒ½
+	  ã»ã¨ã‚“ã©ã®æ©Ÿèƒ½ã¯ã€SearchDialogãŠã‚ˆã³SearchDialogã«ã¦
+	  åˆ©ç”¨ã•ã‚Œã¦ã„ã‚‹ä»¥ä¸‹ã®ã‚¯ãƒ©ã‚¹ã«ã‚ˆã‚Šå®Ÿç¾ã•ã‚Œã¦ã„ã‚‹ã€‚
 
-		SearchDialog	: •¶š—ñŒŸõ‚Ìƒ^ƒXƒN‚ğs‚¤‚½‚ß‚Ìƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX
-		WordRetriever	: •¶š—ñŒŸõ‚ğs‚¤ƒNƒ‰ƒX
-		WordRange		: ŒŸõ‚µ‚½•¶š—ñ‚ÌˆÊ’u‚ğ•\‚·ƒNƒ‰ƒX
-		StringChecker	: •¶š—ñ’†‚É‘¶İ‚·‚é’PŒê‚Ìˆê——‚ğæ“¾‚·‚é‚½‚ß‚É—˜—p
-						  “Á’è‚Ì’PŒê‚ª‚¢‚­‚Â‘¶İ‚·‚é‚Ì‚©‚ÍAWordCounter‚Ì
-						  ƒCƒ“ƒXƒ^ƒ“ƒX‚Æ‚µ‚Ä•\Œ»‚µ‚Ä‚¢‚éB
-		WordCounter		: “Á’è‚Ì•¶š—ñ‚ª•¶š—ñ’†‚É‘¶İ‚µ‚Ä‚¢‚é”‚ğ•\‚·B
-						  ŒŸõŒó•â‚Ìˆê——‚Ì‚½‚ß‚É—˜—p‚µ‚Ä‚¢‚éB
+		SearchDialog	: æ–‡å­—åˆ—æ¤œç´¢ã®ã‚¿ã‚¹ã‚¯ã‚’è¡Œã†ãŸã‚ã®ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒœãƒƒã‚¯ã‚¹
+		WordRetriever	: æ–‡å­—åˆ—æ¤œç´¢ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹
+		WordRange		: æ¤œç´¢ã—ãŸæ–‡å­—åˆ—ã®ä½ç½®ã‚’è¡¨ã™ã‚¯ãƒ©ã‚¹
+		StringChecker	: æ–‡å­—åˆ—ä¸­ã«å­˜åœ¨ã™ã‚‹å˜èªã®ä¸€è¦§ã‚’å–å¾—ã™ã‚‹ãŸã‚ã«åˆ©ç”¨
+						  ç‰¹å®šã®å˜èªãŒã„ãã¤å­˜åœ¨ã™ã‚‹ã®ã‹ã¯ã€WordCounterã®
+						  ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã¨ã—ã¦è¡¨ç¾ã—ã¦ã„ã‚‹ã€‚
+		WordCounter		: ç‰¹å®šã®æ–‡å­—åˆ—ãŒæ–‡å­—åˆ—ä¸­ã«å­˜åœ¨ã—ã¦ã„ã‚‹æ•°ã‚’è¡¨ã™ã€‚
+						  æ¤œç´¢å€™è£œã®ä¸€è¦§ã®ãŸã‚ã«åˆ©ç”¨ã—ã¦ã„ã‚‹ã€‚
 	**/
 	void search(){
 		new SearchDialog(this);
 	}
 
 	/*
-	   •¶š—ñ‚Ì’uŠ·
-	   –¢À‘•
+	   æ–‡å­—åˆ—ã®ç½®æ›
+	   æœªå®Ÿè£…
 	*/
 	void replace(){
 		System.out.println("REPLACE");
 	}
 
 	/*
-	   Œ»İarea(TextArea)‚É‚Ä•Û‚µ‚Ä‚¢‚é•¶š—ñ‚Ì’†‚É‘¶İ‚·‚é
-	   ’PŒê‚Ìˆê——‚ğæ“¾‚µAƒ_ƒCƒAƒƒO(MessageDialog)‚É‚Ä•\¦‚·‚éB
+	   ç¾åœ¨area(TextArea)ã«ã¦ä¿æŒã—ã¦ã„ã‚‹æ–‡å­—åˆ—ã®ä¸­ã«å­˜åœ¨ã™ã‚‹
+	   å˜èªã®ä¸€è¦§ã‚’å–å¾—ã—ã€ãƒ€ã‚¤ã‚¢ãƒ­ã‚°(MessageDialog)ã«ã¦è¡¨ç¤ºã™ã‚‹ã€‚
 	*/
 	void wordList(){
 		String text = area.getText();
@@ -419,9 +419,9 @@ public class TextEditor extends Frame implements Closable{
 	}
 
 	/**
-	  ƒEƒCƒ“ƒhƒE‚ğ•Â‚¶‚é‚Æ‚«‚É‹N“®‚·‚éƒƒ\ƒbƒhB
-	  ClosableƒCƒ“ƒ^[ƒtƒF[ƒX‚Ìclose()ƒƒ\ƒbƒh‚ğ
-	  ƒI[ƒo[ƒ‰ƒCƒh‚µ‚Ä‚¢‚éB
+	  ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‚’é–‰ã˜ã‚‹ã¨ãã«èµ·å‹•ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
+	  Closableã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã®close()ãƒ¡ã‚½ãƒƒãƒ‰ã‚’
+	  ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã—ã¦ã„ã‚‹ã€‚
 	**/
 	@Override 
 	public void close(){
@@ -432,8 +432,8 @@ public class TextEditor extends Frame implements Closable{
 	}
 
 	/**
-	  ƒƒCƒ“ƒƒ\ƒbƒh
-	  ƒeƒLƒXƒgƒGƒfƒBƒ^‚ğ‹N“®‚·‚éB
+	  ãƒ¡ã‚¤ãƒ³ãƒ¡ã‚½ãƒƒãƒ‰
+	  ãƒ†ã‚­ã‚¹ãƒˆã‚¨ãƒ‡ã‚£ã‚¿ã‚’èµ·å‹•ã™ã‚‹ã€‚
 	**/
 	public static void main(String args[]){
 		new TextEditor();
