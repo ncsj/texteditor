@@ -2,40 +2,40 @@ import  java.awt.*;
 import  java.util.Calendar;
 
 /**
-  ãƒ—ãƒªãƒ³ãƒˆã‚¸ãƒ§ãƒ–ã‚’ç®¡ç†ã—ã€å°åˆ·ã‚’ãŠã“ãªã†ãŸã‚ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å®šç¾©ã€‚
-  ã“ã®ã‚¯ãƒ©ã‚¹è‡ªä½“ã¯ã€æ–‡å­—åˆ—ã®å°åˆ·ã®ã¿ã‚’æƒ³å®šã—ã¦ã„ã‚‹ã€‚
+  ƒvƒŠƒ“ƒgƒWƒ‡ƒu‚ğŠÇ—‚µAˆóü‚ğ‚¨‚±‚È‚¤‚½‚ß‚ÌƒIƒuƒWƒFƒNƒg‚Ì’è‹`B
+  ‚±‚ÌƒNƒ‰ƒX©‘Ì‚ÍA•¶š—ñ‚Ìˆóü‚Ì‚İ‚ğ‘z’è‚µ‚Ä‚¢‚éB
 **/
 public
 class PrintManager{
-	Frame  owner			= null;			// ã“ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®ã‚ªãƒ¼ãƒŠãƒ¼ã¨ãªã‚‹ãƒ•ãƒ¬ãƒ¼ãƒ ã®æŒ‡å®š
-											// ãƒ—ãƒªãƒ³ãƒˆã‚¸ãƒ§ãƒ–ã‚’å–å¾—ã™ã‚‹ã¨ãã«å¿…è¦ã€‚
-	Toolkit  toolkit		= null;			// ãƒ—ãƒªãƒ³ãƒˆã‚¸ãƒ§ãƒ–ã‚’å–å¾—ã™ã‚‹ãŸã‚ã®ãƒ„ãƒ¼ãƒ«ã‚­ãƒƒãƒˆ
+	Frame  owner			= null;			// ‚±‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ÌƒI[ƒi[‚Æ‚È‚éƒtƒŒ[ƒ€‚Ìw’è
+											// ƒvƒŠƒ“ƒgƒWƒ‡ƒu‚ğæ“¾‚·‚é‚Æ‚«‚É•K—vB
+	Toolkit  toolkit		= null;			// ƒvƒŠƒ“ƒgƒWƒ‡ƒu‚ğæ“¾‚·‚é‚½‚ß‚Ìƒc[ƒ‹ƒLƒbƒg
 
-	PageAttributes pageAttr	= null;			// ãƒšãƒ¼ã‚¸å±æ€§ï¼ˆç”¨ç´™ã®ã‚µã‚¤ã‚ºã‚„å‘ããªã©ï¼‰
-	JobAttributes  jobAttr	= null;			// ã‚¸ãƒ§ãƒ–ã®å±æ€§ï¼ˆå‡ºåŠ›å…ˆã‚„ã‚³ãƒ”ãƒ¼éƒ¨æ•°ãªã©ã€æœªä½¿ç”¨ï¼‰
+	PageAttributes pageAttr	= null;			// ƒy[ƒW‘®«i—p†‚ÌƒTƒCƒY‚âŒü‚«‚È‚Çj
+	JobAttributes  jobAttr	= null;			// ƒWƒ‡ƒu‚Ì‘®«io—Íæ‚âƒRƒs[•””‚È‚ÇA–¢g—pj
 
-	static PrintManager manager = null;		// ã“ã®ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã¯ã€ï¼‘ã¤ã®ã¿ã«åˆ¶é™ã™ã‚‹ã€‚
+	static PrintManager manager = null;		// ‚±‚ÌƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ÍA‚P‚Â‚Ì‚İ‚É§ŒÀ‚·‚éB
 
-	String title;							// Jobã®ã‚¿ã‚¤ãƒˆãƒ«
-	int max = 75;							// 1ãƒšãƒ¼ã‚¸ã®æœ€å¤§è¡Œæ•°ã€‚åˆæœŸå€¤ã‚’75ã«è¨­å®šã€‚
+	String title;							// Job‚Ìƒ^ƒCƒgƒ‹
+	int max = 75;							// 1ƒy[ƒW‚ÌÅ‘ås”B‰Šú’l‚ğ75‚Éİ’èB
 	
 	/**
-	  ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ãƒ¼
-	  ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®æ•°ã‚’æŠ‘åˆ¶ã™ã‚‹ãŸã‚ã«ã€privateã«ã—ã¦ã‚ã‚‹ã“ã¨ã«æ³¨æ„ã€‚
+	  ƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^[
+	  ƒCƒ“ƒXƒ^ƒ“ƒX‚Ì”‚ğ—}§‚·‚é‚½‚ß‚ÉAprivate‚É‚µ‚Ä‚ ‚é‚±‚Æ‚É’ˆÓB
 	**/
 	private PrintManager(){
-		// ãƒ„ãƒ¼ãƒ«ã‚­ãƒƒãƒˆã®å–å¾—
+		// ƒc[ƒ‹ƒLƒbƒg‚Ìæ“¾
 		toolkit = Toolkit.getDefaultToolkit();
 
-		// ãƒšãƒ¼ã‚¸å±æ€§ã®è¨­å®š  ç”¨ç´™ã‚µã‚¤ã‚º:A4,å‘ã:ç¸¦ï¼ˆPORTRAITï¼‰
+		// ƒy[ƒW‘®«‚Ìİ’è  —p†ƒTƒCƒY:A4,Œü‚«:ciPORTRAITj
 		pageAttr = new PageAttributes();
 		pageAttr.setMedia(PageAttributes.MediaType.A4);
 		pageAttr.setOrientationRequested(PageAttributes.OrientationRequestedType.PORTRAIT);
 	}
 
 	/**
-	  ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’å–å¾—ã™ã‚‹ãŸã‚ã®ã‚¹ã‚¿ãƒ†ã‚£ãƒƒã‚¯ãƒ¡ã‚½ãƒƒãƒ‰
-	  æ‰€è¬‚ã€ãƒ•ã‚¡ã‚¯ãƒˆãƒªãƒ¼ãƒ¡ã‚½ãƒƒãƒ‰
+	  ƒCƒ“ƒXƒ^ƒ“ƒX‚ğæ“¾‚·‚é‚½‚ß‚ÌƒXƒ^ƒeƒBƒbƒNƒƒ\ƒbƒh
+	  ŠˆàAƒtƒ@ƒNƒgƒŠ[ƒƒ\ƒbƒh
 	**/
 	public static PrintManager getInstance(Frame owner,String title){
 		if(manager == null){
@@ -54,41 +54,41 @@ class PrintManager{
 	}
 
 	/**
-	  å°åˆ·ã‚’ãŠã“ãªã†ã€‚
-	  ï¼‘è¡ŒãŒæ–‡å­—åˆ—ã®é…åˆ—ï¼‘ã¤ã«ç›¸å½“ã™ã‚‹ã€‚
-	  ï¼‘ãƒšãƒ¼ã‚¸ã®æœ€å¤§è¡Œæ•°ã¯ã€75ã«è¨­å®šã—ã¦ã‚ã‚‹ã€‚
+	  ˆóü‚ğ‚¨‚±‚È‚¤B
+	  ‚Ps‚ª•¶š—ñ‚Ì”z—ñ‚P‚Â‚É‘Š“–‚·‚éB
+	  ‚Pƒy[ƒW‚ÌÅ‘ås”‚ÍA75‚Éİ’è‚µ‚Ä‚ ‚éB
 	**/
 	public void print(String [] lines){
 		PrintJob  job = toolkit.getPrintJob(owner,title,jobAttr,pageAttr);
 
-		// ãƒšãƒ¼ã‚¸æ•°ã®è¨ˆç®—
+		// ƒy[ƒW”‚ÌŒvZ
 		int pageCount = getPageCount(lines.length,max);
 
-		// å°åˆ·
+		// ˆóü
 		for(int pi=0;pi<pageCount;pi++){
-			Graphics g = job.getGraphics();			// æ–°ã—ã„ãƒšãƒ¼ã‚¸ã®ã‚°ãƒ©ãƒ•ã‚£ã‚¯ã‚¹ã‚’å–å¾—
+			Graphics g = job.getGraphics();			// V‚µ‚¢ƒy[ƒW‚ÌƒOƒ‰ƒtƒBƒNƒX‚ğæ“¾
 			
-			int bi = pi * max;						// ãƒšãƒ¼ã‚¸ã«å°åˆ·ã•ã‚Œã‚‹æœ€åˆã®é…åˆ—ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
-			int ei = bi + max;						// ãƒšãƒ¼ã‚¸æ¯ã®ä¸Šé™
-			if(ei > lines.length){					// ä¸Šé™ã®åˆ¶é™ã€‚é…åˆ—ã®é•·ã•ã‚’è¶…ãˆãªã„ã“ã¨ã€‚
+			int bi = pi * max;						// ƒy[ƒW‚Éˆóü‚³‚ê‚éÅ‰‚Ì”z—ñ‚ÌƒCƒ“ƒfƒbƒNƒX
+			int ei = bi + max;						// ƒy[ƒW–ˆ‚ÌãŒÀ
+			if(ei > lines.length){					// ãŒÀ‚Ì§ŒÀB”z—ñ‚Ì’·‚³‚ğ’´‚¦‚È‚¢‚±‚ÆB
 				ei = lines.length;
 			}
 
-			printHeader(g);							// ãƒ˜ãƒƒãƒ€ãƒ¼ã®å°åˆ·
-			printPage(g,lines,bi,ei);				// ãƒšãƒ¼ã‚¸ã®æœ¬æ–‡ã‚’å°åˆ·
-			printFooter(g,pi+1);					// ãƒ•ãƒƒã‚¿ãƒ¼ã®å°åˆ·
-			g.dispose();							// æ”¹ãƒšãƒ¼ã‚¸
+			printHeader(g);							// ƒwƒbƒ_[‚Ìˆóü
+			printPage(g,lines,bi,ei);				// ƒy[ƒW‚Ì–{•¶‚ğˆóü
+			printFooter(g,pi+1);					// ƒtƒbƒ^[‚Ìˆóü
+			g.dispose();							// ‰üƒy[ƒW
 		}
 
 		job.end();
 	}
 
 	/**
-	  æœ¬æ–‡ã®å°åˆ·ï¼ï¼‘ãƒšãƒ¼ã‚¸åˆ†ã®å°åˆ·
+	  –{•¶‚Ìˆóü‚Pƒy[ƒW•ª‚Ìˆóü
 	**/
 	void printPage(Graphics g,String [] lines,int bi,int ei){
 		int yi = 0;
-		for(int i=bi;i<ei;i++){		// æœ¬æ–‡ã®å°åˆ·
+		for(int i=bi;i<ei;i++){		// –{•¶‚Ìˆóü
 			int x = 65;
 			int offset = yi * 10;
 			int y = 60 + offset;
@@ -99,7 +99,7 @@ class PrintManager{
 	}
 
 	/**
-	  ãƒšãƒ¼ã‚¸æ•°ã®è¨ˆç®—
+	  ƒy[ƒW”‚ÌŒvZ
 	**/
 	int getPageCount(int line,int max){
 		int page_count = 0;
@@ -115,7 +115,7 @@ class PrintManager{
 	}
 
 	/**
-	  ãƒ˜ãƒƒãƒ€ãƒ¼ã®å°åˆ·
+	  ƒwƒbƒ_[‚Ìˆóü
 	**/
 	void printHeader(Graphics g){
 		g.drawLine(30,48,550,48);
@@ -123,7 +123,7 @@ class PrintManager{
 		String s = "[" + title + "]";
 		g.drawString(s,30,40);
 
-		// æ—¥ä»˜ãƒ»æ™‚åˆ»
+		// “ú•tE
 		Calendar cal = Calendar.getInstance();
 		int year  = cal.get(Calendar.YEAR);
 		int month = cal.get(Calendar.MONTH) + 1;
@@ -141,7 +141,7 @@ class PrintManager{
 	}
 
 	/**
-	  ãƒ•ãƒƒã‚¿ãƒ¼ã®å°åˆ·
+	  ƒtƒbƒ^[‚Ìˆóü
 	**/
 	void printFooter(Graphics g,int page){
 		int y = 805;

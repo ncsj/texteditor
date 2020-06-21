@@ -2,11 +2,11 @@ import  java.util.ArrayList;
 import  java.util.Collections;
 
 /**
-  $BJ8;zNs$r%A%'%C%/$7!"$=$NCf$KEP>l$9$kC18l$r%j%9%H2=$9$k!#(B
-  $B%j%9%H2=$5$l$kC18l$O!"EP>l2s?t$H$H$b$K!"(BWordCounter$B$N(B
-  $B%*%V%8%'%/%H$H$7$FI=8=$5$l$k!#(B
+  •¶š—ñ‚ğƒ`ƒFƒbƒN‚µA‚»‚Ì’†‚É“oê‚·‚é’PŒê‚ğƒŠƒXƒg‰»‚·‚éB
+  ƒŠƒXƒg‰»‚³‚ê‚é’PŒê‚ÍA“oê‰ñ”‚Æ‚Æ‚à‚ÉAWordCounter‚Ì
+  ƒIƒuƒWƒFƒNƒg‚Æ‚µ‚Ä•\Œ»‚³‚ê‚éB
 
-  $B$J$*!"F|K\8l$K$OBP1~$7$F$$$J$$!#(B
+  ‚È‚¨A“ú–{Œê‚É‚Í‘Î‰‚µ‚Ä‚¢‚È‚¢B
 **/
 class StringChecker{
 	String target = null;
@@ -17,9 +17,9 @@ class StringChecker{
 	}
 
 	/**
-	  $B2~9T$d%?%V!"6gFIE@!J%T%j%*%I$d%+%s%^!K!"6uGr$O!"(B
-	  $BC18l$r?t$($k>e$GITMW$J$N$G!"$"$i$+$8$a>C$7$F$*$/!#(B
-	  $BC18l$r6h@Z$k$?$a$N6uGr$N$_!";D$7$F$*$/!#(B
+	  ‰üs‚âƒ^ƒuA‹å“Ç“_iƒsƒŠƒIƒh‚âƒJƒ“ƒ}jA‹ó”’‚ÍA
+	  ’PŒê‚ğ”‚¦‚éã‚Å•s—v‚È‚Ì‚ÅA‚ ‚ç‚©‚¶‚ßÁ‚µ‚Ä‚¨‚­B
+	  ’PŒê‚ğ‹æØ‚é‚½‚ß‚Ì‹ó”’‚Ì‚İAc‚µ‚Ä‚¨‚­B
 	**/
 	String filter(String text){
 		StringBuilder sb = new StringBuilder();
@@ -33,17 +33,17 @@ class StringChecker{
 				case 0x0009:	//  TAB
 				case '.':
 				case ',':
-					c = ' ';	// $B$H$j$"$($:6uGr!J%9%Z!<%9!K$XCV$-49$($k(B
+					c = ' ';	// ‚Æ‚è‚ ‚¦‚¸‹ó”’iƒXƒy[ƒXj‚Ö’u‚«Š·‚¦‚é
 					break;
 				default:
 					break;
 			}
 
-			// $B0J2<$N>r7o<0$G!"O"B3$7$F$$$k6uGr!J%9%Z!<%9!K$rH=Dj(B
+			// ˆÈ‰º‚ÌğŒ®‚ÅA˜A‘±‚µ‚Ä‚¢‚é‹ó”’iƒXƒy[ƒXj‚ğ”»’è
 			if((prev == ' ') && (c == ' ')){
 				;
 			}
-			else{ // $BO"B3$7$?6uGr$G$J$1$l$P!"%P%C%U%!$XDI2C(B
+			else{ // ˜A‘±‚µ‚½‹ó”’‚Å‚È‚¯‚ê‚ÎAƒoƒbƒtƒ@‚Ö’Ç‰Á
 				sb.append( c );
 				prev = c;
 			}
@@ -54,8 +54,8 @@ class StringChecker{
 	}
 
 	/*
-	   $BBP>]$H$7$F$$$kJ8;zNsFb$KB8:_$9$kC18l$NAm?t$r?t$($F!"(B
-	   $BC18l?t(B(WordCounter)$B$N0lMw!JG[Ns!K$rJV$9(B
+	   ‘ÎÛ‚Æ‚µ‚Ä‚¢‚é•¶š—ñ“à‚É‘¶İ‚·‚é’PŒê‚Ì‘”‚ğ”‚¦‚ÄA
+	   ’PŒê”(WordCounter)‚Ìˆê——i”z—ñj‚ğ•Ô‚·
 	*/
 	public WordCounter [] listup(){
 		String [] words = target.split(" ");
@@ -70,15 +70,15 @@ class StringChecker{
 			}
 
 			if(flag){
-				;		// $B$J$K$b$7$J$$(B
+				;		// ‚È‚É‚à‚µ‚È‚¢
 			}
-			else{		// $B?7$7$$C18l$J$N$G!"EPO?$9$k!#(B
+			else{		// V‚µ‚¢’PŒê‚È‚Ì‚ÅA“o˜^‚·‚éB
 				WordCounter wc = new WordCounter(words[i]);
 				wlist.add(wc);
 			}
 		}
 
-		// $BC18l$N0lMw$r%=!<%H$9$k!#(B
+		// ’PŒê‚Ìˆê——‚ğƒ\[ƒg‚·‚éB
 		Collections.sort(wlist);
 
 		WordCounter [] warray = new WordCounter [wlist.size()];
@@ -90,7 +90,7 @@ class StringChecker{
 	}
 
 	/*
-	   $BC18l$N1d$Y?t(B
+	   ’PŒê‚Ì‰„‚×”
 	*/
 	public int count(){
 		int count = 0;
@@ -104,7 +104,7 @@ class StringChecker{
 	}
 
 	/*
-	   $B;XDj$7$?C18l$,B8:_$9$k?t(B
+	   w’è‚µ‚½’PŒê‚ª‘¶İ‚·‚é”
 	*/
 	public int count(String w){
 		int rtc = 0;

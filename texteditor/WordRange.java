@@ -1,5 +1,5 @@
 /**
-  $BC18l$,J8;zNsCf$G=P8=$9$k>l=j$rI=$9%*%V%8%'%/%H$rDj5A!#(B
+  ’PŒê‚ª•¶š—ñ’†‚ÅoŒ»‚·‚éêŠ‚ğ•\‚·ƒIƒuƒWƒFƒNƒg‚ğ’è‹`B
 **/
 class WordRange{
 	String	word;

@@ -1,6 +1,6 @@
 /**
-  $BJ];}$9$kJ8;zNs$,!"FCDj$NJ8;zNsCf$K2?2sEP>l$9$k$N$+$rI=$9$?$a$N%*%V%8%'%/%H(B
-  StringChecker$B$K$FC18l$N0lMw$r:n@.$9$k$H$-$K;HMQ$9$k!#(B
+  •Û‚·‚é•¶š—ñ‚ªA“Á’è‚Ì•¶š—ñ’†‚É‰½‰ñ“oê‚·‚é‚Ì‚©‚ğ•\‚·‚½‚ß‚ÌƒIƒuƒWƒFƒNƒg
+  StringChecker‚É‚Ä’PŒê‚Ìˆê——‚ğì¬‚·‚é‚Æ‚«‚Ég—p‚·‚éB
 **/
 class WordCounter implements Comparable<WordCounter>{
 	String	word = null;
