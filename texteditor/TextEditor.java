@@ -5,47 +5,47 @@ import  java.io.*;
 import  java.util.Properties;
 
 /**
- TextEditor : $B%F%-%9%H%(%G%#%?!<(B
- $B@=:n4|4V(B : 2020.6.15-19$B!J#5F|4V!K(B
+ TextEditor : テキストエディター
+ 製作期間 : 2020.6.15-19（５日間）
 
- $B%F%-%9%H%(%G%#%?!<$N:n@.2aDx$rDL$8$F!"(BJava$B%W%m%0%i%_%s%0$N(B
- $BMM!9$JCN<1$r3X$s$G$$$-$^$9!#(B
+ テキストエディターの作成過程を通じて、Javaプログラミングの
+ 様々な知識を学んでいきます。
 
- $B$3$3$G3X$V<g$JFbMF$O0J2<$NDL$j$G$9!#(B
+ ここで学ぶ主な内容は以下の通りです。
 
- $B#1(B.GUI$B4XO"(B
-   $B%&%$%s%I%&!J(BFrame/Dialog/FileDialog$B!K$NA`:n(B
-   $B%$%Y%s%H$N=hM}(B
-     $B%$%s%?!<%U%'!<%9$H%i%`%@<0(B
-	 $B%"%@%W%?!<$HF?L>%/%i%9(B
-   GUI$B%3%s%]!<%M%s%H$N3hMQ(B
+ １.GUI関連
+   ウインドウ（Frame/Dialog/FileDialog）の操作
+   イベントの処理
+     インターフェースとラムダ式
+	 アダプターと匿名クラス
+   GUIコンポーネントの活用
      Label
 	 Button
 	 TextField
 	 TextArea
 	 List
-	 Menu$B!J(BMenu,MenuBar,MenuItem$B!K(B
- $B#2(B.$B0u:~(B
-   $B%W%j%s%H%8%g%V!J(BPrintJob$B!K$H%0%i%U%#%/%9(B(Graphics)$B$NA`:n(B
-     Toolkit$B$H(BPrintJob
-	 Graphics$B$NA`:n(B
-	 $B%Z!<%8B0@-!J(BPageAttributes$B!K$N@_Dj(B
- $B#3(B.$BJ8;zNs$NA`:n(B
-   String$B%/%i%9$rMQ$$$?J8;zNs$NA`:n(B
-	 length()$B%a%=%C%I(B	: $BJ8;zNs$ND9$5(B
-     split()$B%a%=%C%I(B	: $BJ8;zNs$NJ,3d(B
-	 charAt()$B%a%=%C%I(B	: $BJ8;zNs$+$i#1J8;z$r<h$j=P$9(B
-	 format()$B%a%=%C%I(B	: $B=q<0@_Dj$rMxMQ$7$?J8;zNs$N@8@.(B
- $B#4(B.$B%U%!%$%kF~=PNO(B
-   $B%F%-%9%H%U%!%$%k$NF~NO!JFI$_9~$_!K(B
+	 Menu（Menu,MenuBar,MenuItem）
+ ２.印刷
+   プリントジョブ（PrintJob）とグラフィクス(Graphics)の操作
+     ToolkitとPrintJob
+	 Graphicsの操作
+	 ページ属性（PageAttributes）の設定
+ ３.文字列の操作
+   Stringクラスを用いた文字列の操作
+	 length()メソッド	: 文字列の長さ
+     split()メソッド	: 文字列の分割
+	 charAt()メソッド	: 文字列から１文字を取り出す
+	 format()メソッド	: 書式設定を利用した文字列の生成
+ ４.ファイル入出力
+   テキストファイルの入力（読み込み）
      java.io.FileInputStream
 	 java.io.InputStreamReader
 	 java.io.BufferedReader
 	 java.lang.StringBuilder
-   $B%F%-%9%H%U%!%$%k$N=PNO!J=q$-=P$7!K(B
+   テキストファイルの出力（書き出し）
      java.io.FileOutputStream
 	 java.io.PrintStream
-   $B%W%m%Q%F%#!J(Bjava.util.Properties$B!K$rMxMQ$7$?%U%!%$%kF~=PNO(B
+   プロパティ（java.util.Properties）を利用したファイル入出力
      java.util.Properties
 **/
 public class TextEditor extends Frame implements Closable{
@@ -55,7 +55,7 @@ public class TextEditor extends Frame implements Closable{
 	FileManager fileManager = null;
 
 	/**
-	  $B%G%U%)%k%H%3%s%9%H%i%/%?!<(B
+	  デフォルトコンストラクター
 	**/
 	public TextEditor(){
 		// setBounds(1600,0,800,600);
@@ -75,7 +75,7 @@ public class TextEditor extends Frame implements Closable{
 	}
 
 	/**
-	  $B%a%K%e!<$N@_Dj(B
+	  メニューの設定
 	**/
 	void initMenu(){
 		{
@@ -144,8 +144,8 @@ public class TextEditor extends Frame implements Closable{
 	}
 
 	/**
-	  $B?75,$N%3%s%F%s%D$r:n@.$9$k$?$a$K!"(B
-	  $B%F%-%9%H%(%j%"!J(BTextArea$B!K$H%U%!%$%k%^%M!<%8%c$r=i4|2=$7$F$$$k!#(B
+	  新規のコンテンツを作成するために、
+	  テキストエリア（TextArea）とファイルマネージャを初期化している。
 	**/
 	void newContents(){
 		MessageDialog dlg = new MessageDialog(this
@@ -161,9 +161,9 @@ public class TextEditor extends Frame implements Closable{
 	}
 
 	/**
-	  $B%U%!%$%k$r%*!<%W%s$9$k!#(B
-	  $B%U%!%$%k$N;XDj$K$O!"(BFileDialog$B$rMxMQ$9$k!#(B
-	  $B%U%!%$%k$N%m!<%I$K$O!"(BloadFile()$B$rMxMQ$9$k!#(B
+	  ファイルをオープンする。
+	  ファイルの指定には、FileDialogを利用する。
+	  ファイルのロードには、loadFile()を利用する。
 	**/
 	void openFile(){
 		FileDialog dlg = new FileDialog(this,"File Open ...",FileDialog.LOAD);
@@ -187,9 +187,9 @@ public class TextEditor extends Frame implements Closable{
 	}
 
 	/**
-	  $B%U%!%$%k$r%m!<%I$9$k!#(B
-	  $B%U%!%$%k$N%m!<%I$K$O!"(BFileManager$B$rMxMQ$7$F$$$k!#(B
-	  $B>\:Y$O!"(BFileManager.java$B$r;2>H$N$3$H!#(B
+	  ファイルをロードする。
+	  ファイルのロードには、FileManagerを利用している。
+	  詳細は、FileManager.javaを参照のこと。
 	**/
 	void loadFile(){
 		if(this.fileManager != null){
@@ -207,10 +207,10 @@ public class TextEditor extends Frame implements Closable{
 	}
 
 	/**
-	  $BJ];}$7$F$$$k%F%-%9%H$r!"%U%!%$%k$XJ]B8$9$k!#(B
-	  $B%U%!%$%kL>$,L$Dj$N>l9g$O!"(BsaveAsFile()$B$X0\9T$9$k!#(B
-	  $B<B:]$K%U%!%$%k$rJ]B8$7$F$$$k$N$O!"(BFileManager$B$G$"$k!#(B
-	  $B>\:Y$O!"(BFileManager.java$B$r;2>H$N$3$H!#(B
+	  保持しているテキストを、ファイルへ保存する。
+	  ファイル名が未定の場合は、saveAsFile()へ移行する。
+	  実際にファイルを保存しているのは、FileManagerである。
+	  詳細は、FileManager.javaを参照のこと。
 	**/
 	void saveFile(){
 		if(this.fileManager != null){
@@ -231,8 +231,8 @@ public class TextEditor extends Frame implements Closable{
 	}
 
 	/**
-	  $B%U%!%$%kL>$r;XDj$7$F!"%U%!%$%k$XJ]B8$9$k!#(B
-	  $B%U%!%$%kL>$N;XDj$K$O!"(BFileDialog$B$rMxMQ$9$k!#(B
+	  ファイル名を指定して、ファイルへ保存する。
+	  ファイル名の指定には、FileDialogを利用する。
 	**/
 	void saveAsFile(){
 		FileDialog dlg = new FileDialog(this,"Save As ...",FileDialog.SAVE);
@@ -256,7 +256,7 @@ public class TextEditor extends Frame implements Closable{
 	}
 
 	/*
-	   $B%F%-%9%H$N0u:~(B
+	   テキストの印刷
 	*/
 	void print(){
 		String text = area.getText();
@@ -267,20 +267,20 @@ public class TextEditor extends Frame implements Closable{
 			title = "TextEditor - " + this.fileManager.fname;
 		}
 
-		// PrintManager$B$rMxMQ$7$F0u:~$r9T$&!#(B
-		// $B>\:Y$O!"(BPrintManager.java$B$r;2>H$N$3$H!#(B
+		// PrintManagerを利用して印刷を行う。
+		// 詳細は、PrintManager.javaを参照のこと。
 		PrintManager manager = PrintManager.getInstance(this,title);
 		manager.print(lines);
 	}
 
 	/*
-	   $B%W%m%Q%F%#$NJ]B8(B
-	   $B%&%$%s%I%&(B(Frame)$B$NI=<(0LCV>pJs$r(BProperies$B$N5!G=$rMxMQ$7$FJ]B8$9$k!#(B
-	   $B$3$3$G$O!"(BXML$B7A<0$GJ]B8$9$k5!G=!J(BstoreToXML()$B!K$rMxMQ$7$F$$$k!#(B
+	   プロパティの保存
+	   ウインドウ(Frame)の表示位置情報をProperiesの機能を利用して保存する。
+	   ここでは、XML形式で保存する機能（storeToXML()）を利用している。
 	*/
 	void saveProps(){
-		// Rectangle = $B6k7A(B
-		// $B8=:_$NI=<(0LCV$r(BRectangle$B$N%$%s%9%?%s%9$H$7$F<hF@$9$k!#(B
+		// Rectangle = 矩形
+		// 現在の表示位置をRectangleのインスタンスとして取得する。
 		Rectangle rect = getBounds();
 
 		Properties props = new Properties();
@@ -295,7 +295,7 @@ public class TextEditor extends Frame implements Closable{
 		props.put("h",sh);
 
 		try{
-			// $BJ]B8$9$k%U%!%$%k!J(Bbounds.xml$B!K$N;XDj(B
+			// 保存するファイル（bounds.xml）の指定
 			FileOutputStream fout = new FileOutputStream("bounds.xml");
 			props.storeToXML(fout,"BOUNDS OF TEXTEDITOR");
 			fout.close();
@@ -316,12 +316,12 @@ public class TextEditor extends Frame implements Closable{
 	}
 
 	/*
-	   $B%W%m%Q%F%#$NFI$_9~$_(B
-	   $B%F%-%9%H%(%G%#%?5/F0;~$NI=<(0LCV$rFI$_9~$`!#(B
-	   saveProps()$B$K$FJ]4I$5$l$?I=<(0LCV>pJs$rFI$_9~$_!"(B
-	   $BA02s=*N;;~$KI=<($5$l$F$$$?0LCV$KI=<($9$k$?$a$KMxMQ$9$k!#(B
-	   $B=i2s5/F0;~$J$I!"@_Dj%U%!%$%k!J(Bbounds.xml$B!K$,B8:_$7$J$$(B
-	   $B>l9g$O!"=i4|@_Dj!J(B0,0,800,600$B!K$rE,MQ$9$k!#(B
+	   プロパティの読み込み
+	   テキストエディタ起動時の表示位置を読み込む。
+	   saveProps()にて保管された表示位置情報を読み込み、
+	   前回終了時に表示されていた位置に表示するために利用する。
+	   初回起動時など、設定ファイル（bounds.xml）が存在しない
+	   場合は、初期設定（0,0,800,600）を適用する。
 	*/
 	void loadProps(){
 		try{
@@ -341,11 +341,11 @@ public class TextEditor extends Frame implements Closable{
 			int w = Integer.valueOf(sw).intValue();
 			int h = Integer.valueOf(sh).intValue();
 
-			// $BFI$_9~$s$@CM$rE,MQ$9$k!#(B
+			// 読み込んだ値を適用する。
 			setBounds(x,y,w,h);
 		}
 		catch(FileNotFoundException e){
-			// $B%U%!%$%k$,B8:_$7$J$$>l9g$K$O!"=i4|@_Dj$rMQ$$$k!#(B
+			// ファイルが存在しない場合には、初期設定を用いる。
 			setBounds(0,0,800,600);
 		}
 		catch(IOException e){
@@ -357,34 +357,34 @@ public class TextEditor extends Frame implements Closable{
 	}
 
 	/**
-	  $BJ8;zNs8!:w5!G=(B
-	  $B$[$H$s$I$N5!G=$O!"(BSearchDialog$B$*$h$S(BSearchDialog$B$K$F(B
-	  $BMxMQ$5$l$F$$$k0J2<$N%/%i%9$K$h$j<B8=$5$l$F$$$k!#(B
+	  文字列検索機能
+	  ほとんどの機能は、SearchDialogおよびSearchDialogにて
+	  利用されている以下のクラスにより実現されている。
 
-		SearchDialog	: $BJ8;zNs8!:w$N%?%9%/$r9T$&$?$a$N%@%$%"%m%0%\%C%/%9(B
-		WordRetriever	: $BJ8;zNs8!:w$r9T$&%/%i%9(B
-		WordRange		: $B8!:w$7$?J8;zNs$N0LCV$rI=$9%/%i%9(B
-		StringChecker	: $BJ8;zNsCf$KB8:_$9$kC18l$N0lMw$r<hF@$9$k$?$a$KMxMQ(B
-						  $BFCDj$NC18l$,$$$/$DB8:_$9$k$N$+$O!"(BWordCounter$B$N(B
-						  $B%$%s%9%?%s%9$H$7$FI=8=$7$F$$$k!#(B
-		WordCounter		: $BFCDj$NJ8;zNs$,J8;zNsCf$KB8:_$7$F$$$k?t$rI=$9!#(B
-						  $B8!:w8uJd$N0lMw$N$?$a$KMxMQ$7$F$$$k!#(B
+		SearchDialog	: 文字列検索のタスクを行うためのダイアログボックス
+		WordRetriever	: 文字列検索を行うクラス
+		WordRange		: 検索した文字列の位置を表すクラス
+		StringChecker	: 文字列中に存在する単語の一覧を取得するために利用
+						  特定の単語がいくつ存在するのかは、WordCounterの
+						  インスタンスとして表現している。
+		WordCounter		: 特定の文字列が文字列中に存在している数を表す。
+						  検索候補の一覧のために利用している。
 	**/
 	void search(){
 		new SearchDialog(this);
 	}
 
 	/*
-	   $BJ8;zNs$NCV49(B
-	   $BL$<BAu(B
+	   文字列の置換
+	   未実装
 	*/
 	void replace(){
 		System.out.println("REPLACE");
 	}
 
 	/*
-	   $B8=:_(Barea(TextArea)$B$K$FJ];}$7$F$$$kJ8;zNs$NCf$KB8:_$9$k(B
-	   $BC18l$N0lMw$r<hF@$7!"%@%$%"%m%0(B(MessageDialog)$B$K$FI=<($9$k!#(B
+	   現在area(TextArea)にて保持している文字列の中に存在する
+	   単語の一覧を取得し、ダイアログ(MessageDialog)にて表示する。
 	*/
 	void wordList(){
 		String text = area.getText();
@@ -417,9 +417,9 @@ public class TextEditor extends Frame implements Closable{
 	}
 
 	/**
-	  $B%&%$%s%I%&$rJD$8$k$H$-$K5/F0$9$k%a%=%C%I!#(B
-	  Closable$B%$%s%?!<%U%'!<%9$N(Bclose()$B%a%=%C%I$r(B
-	  $B%*!<%P!<%i%$%I$7$F$$$k!#(B
+	  ウインドウを閉じるときに起動するメソッド。
+	  Closableインターフェースのclose()メソッドを
+	  オーバーライドしている。
 	**/
 	@Override 
 	public void close(){
@@ -430,8 +430,8 @@ public class TextEditor extends Frame implements Closable{
 	}
 
 	/**
-	  $B%a%$%s%a%=%C%I(B
-	  $B%F%-%9%H%(%G%#%?$r5/F0$9$k!#(B
+	  メインメソッド
+	  テキストエディタを起動する。
 	**/
 	public static void main(String args[]){
 		new TextEditor();
